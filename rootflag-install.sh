@@ -73,6 +73,11 @@ echo ""
 echo -e "\e[1;33m Getting Evil WinRar... \e[0m"
 git clone https://github.com/manulqwerty/Evil-WinRAR-Gen
 
+# Get patator
+echo ""
+echo -e "\e[1;33m Getting Patator...  \e[0m"
+git clone https://github.com/lanjelot/patator
+
 # Get nc static binaries
 echo ""
 echo -e "\e[1;33m Getting Netcat static binaries \e[0m"
