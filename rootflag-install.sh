@@ -9,6 +9,19 @@
 # Check for tools dir					    
 #############################################################
 
+# Add new repos
+# Atom
+echo ""
+echo -e "\e[1;32m Adding Repos \e[0m"
+echo -e "\e[1;32m Adding  Atom code editor repo \e[0m"
+wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
+sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list'
+
+# Make sure we're up to date
+echo ""
+echo -e "\e[1;32m Making sure everyting is up to date... \e[0m"
+apt-get update && apt-get dist-upgrade -y
+
 # Check our directory
 if [[ ! -d /root/Tools ]]; then
 	echo -e "\e[1;32m Setting up Tools Directory. \e[0m"
@@ -16,10 +29,16 @@ if [[ ! -d /root/Tools ]]; then
 fi
 cd /root/Tools/
 
+# Install Atom
+echo ""
+echo -e "\e[1;33m Installing Atom code editor...  \e[0m"
+apt install atom -y
+
 # Clone some Repos
 echo -e "\e[1;32m Cloning Repos...\e[0m"
 
 # Get Linpeas suite
+echo ""
 echo -e "\e[1;33m Getting LinPeas...\e[0m"
 git clone https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite
 
