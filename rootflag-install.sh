@@ -58,7 +58,7 @@ git clone https://github.com/manulqwerty/Evil-WinRAR-Gen
 echo ""
 echo -e "\e[1;33m Getting Netcat static binaries \e[0m"
 wget https://eternallybored.org/misc/netcat/netcat-win32-1.12.zip
-unzip netcat-win32-1.12.zip
+unzip -j -o netcat-win32-1.12.zip "nc64.exe" "nc.exe" -d . && rm -rf netcat-win32-1.12.zip
 
 # Install zsh
 echo ""
