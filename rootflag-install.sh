@@ -2,11 +2,11 @@
 
 #############################################################
 # A simple script to run when with a new install of Kali.
-# This will install some additional tools for CTFs.				      
-# 	 	 					    
-# Twitter: Lovecore_FGC					    
-# 							    
-# Check for tools dir					    
+# This will install some additional tools for CTFs.
+#
+# Twitter: Lovecore_FGC
+#
+# Check for tools dir
 #############################################################
 
 # Add new repos
@@ -53,6 +53,12 @@ echo -e "\e[1;33m Getting Pspy...\e[0m"
 wget https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy64
 wget https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy32
 
+# Get Sysinternals Suite
+echo ""
+echo -e "\e[1;33m Getting Sysinternals... \e[0m"
+wget https://download.sysinternals.com/files/SysinternalsSuite.zip
+unzip SysinternalsSuite.zip && rm -rf SysinternalsSuite.zip
+
 # John tools (ssh2john)
 echo ""
 echo -e "\e[1;33m Getting John tools...\e[0m"
@@ -84,9 +90,22 @@ echo -e "\e[1;33m Getting Netcat static binaries \e[0m"
 wget https://eternallybored.org/misc/netcat/netcat-win32-1.12.zip
 unzip -j -o netcat-win32-1.12.zip "nc64.exe" "nc.exe" -d . && rm -rf netcat-win32-1.12.zip
 
+# Get Ghidra
+echo ""
+echo -e "\e[1;33m Getting Ghidra v9.1.1... \e[0m"
+wget https://ghidra-sre.org/ghidra_9.1.1_PUBLIC_20191218.zip
+unzip ghidra_9.1.1_PUBLIC_20191218.zip && rm -rf ghidra_9.1.1_PUBLIC_20191218.zip
+echo "alias ghidra=\"~/Tools/ghidra_9.1.1_PUBLIC/ghidraRun\"" >> ~/.bashrc
+
 # Install zsh
 echo ""
 echo -e "\e[1;33m Last step, installing zsh... \e[0m"
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+
+# Add aliases
+echo ""
+echo -e "\e[1;33m Adding Aliases...\e[0m"
+echo "alias ghidra=\"~/Tools/ghidra_9.1.1_PUBLIC/ghidraRun\"" >> ~/.zshrc
 
 cd ~
