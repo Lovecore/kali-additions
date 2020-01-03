@@ -35,6 +35,11 @@ echo ""
 echo -e "\e[1;33m Installing Atom code editor...  \e[0m"
 apt install atom -y
 
+# Install terminator
+echo ""
+echo -e "\e[1;33m Installing Terminator... \ep[0m"
+apt install terminator -y
+
 # Clone some Repos
 echo ""
 echo -e "\e[1;32m Cloning Repos...\e[0m"
@@ -59,7 +64,8 @@ wget https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy32
 echo ""
 echo -e "\e[1;33m Getting Sysinternals... \e[0m"
 wget https://download.sysinternals.com/files/SysinternalsSuite.zip
-unzip SysinternalsSuite.zip && rm -rf SysinternalsSuite.zip
+mkdir Sysinternals
+unzip -o SysinternalsSuite.zip -d /root/Tools/Sysinternals && rm -rf SysinternalsSuite.zip
 
 # John tools (ssh2john)
 echo ""
