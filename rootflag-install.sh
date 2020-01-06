@@ -118,4 +118,6 @@ echo ""
 echo -e "\e[1;33m Adding Aliases...\e[0m"
 echo "alias ghidra=\"~/Tools/ghidra_9.1.1_PUBLIC/ghidraRun\"" >> ~/.zshrc
 
+source ~/.zshrc
+source ~/.bashrc
 cd ~
