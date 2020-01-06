@@ -30,15 +30,12 @@ if [[ ! -d /root/Tools ]]; then
 fi
 cd /root/Tools/
 
-# Install Atom
-echo ""
-echo -e "\e[1;33m Installing Atom code editor...  \e[0m"
-apt install atom -y
-
-# Install terminator
+# Install full Kali toolset Install Atom Install terminator
 echo ""
 echo -e "\e[1;33m Installing Terminator... \ep[0m"
-apt install terminator -y
+echo -e "\e[1;33m Installing Atom code editor...  \e[0m"
+echo -e "\e[1;32m Installing full Kali toolset... \e[0m"
+apt install kali-linux-full atom terminator -y
 
 # Clone some Repos
 echo ""
@@ -91,6 +88,11 @@ git clone https://github.com/manulqwerty/Evil-WinRAR-Gen
 echo ""
 echo -e "\e[1;33m Getting Patator...  \e[0m"
 git clone https://github.com/lanjelot/patator
+
+# Get Watson
+echo ""
+echo -e "\e[1;33m Getting Watson... \e[0m"
+git clone https://github.com/rasta-mouse/Watson
 
 # Get nc static binaries
 echo ""

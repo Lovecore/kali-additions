@@ -19,6 +19,7 @@ It will create a 'Tools' directory on /root/ and install all the tools.
 - Bloodhound
 - Evil-WinRAR
 - Patator
+- Watson
 - Netcat binaries
 - ghidra
 - OhMyZsh Shell
