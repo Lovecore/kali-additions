@@ -12,13 +12,15 @@ It will create a 'Tools' directory on /root/ and install all the tools.
 - Atom editor
 - Terminator
 - GRC
+- Xclip
+- Ufw
 - LinPeas
 - LinEnum
-- pspy32 & pspy64
+- Pspy32 & Pspy64
 - Netcat binaries
-- plink
+- Plink
 - Sysinternals suite
-- ghidra
+- Ghidra
 - John tools
 - Evil winrm
 - Bloodhound
@@ -33,3 +35,16 @@ It will create a 'Tools' directory on /root/ and install all the tools.
 - Type `simple` to launch a SimpleHTTPServer on port 80.
 - Type `nmap` to lauch a colored nmap scan.
 - Type `tools` to go to the Tools directory.
+
+## Zsh Plugins enabled
+
+- encode64
+Example:
+```
+encode64 some_string
+=> c29tZV9zdHJpbmc=
+
+decode64 c29tZV9zdHJpbmc=
+=> some_string
+```
+- zsh-syntax-highlighting

@@ -35,7 +35,7 @@ echo ""
 echo -e "\e[1;33m Installing Terminator... \ep[0m"
 echo -e "\e[1;33m Installing Atom code editor...  \e[0m"
 echo -e "\e[1;32m Installing full Kali toolset... \e[0m"
-apt install kali-linux-full atom terminator grc -y
+apt install kali-linux-full atom terminator grc xclip ufw -y
 
 ############## Start static file things #####################
 # Get nc static binaries
@@ -124,6 +124,12 @@ echo ""
 echo -e "\e[1;33m Last step, installing zsh... \e[0m"
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+# Install ZSH Syntax Highlighting
+echo ""
+echo -e "\e[1;33m Installing Zsh Plugins... \e[0m"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+echo -e "source \${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+sed -i 's/plugins=(git.*/plugins=(git encode64)/' ~/.zshrc
 
 # Add aliases
 echo ""
