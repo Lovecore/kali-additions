@@ -32,9 +32,9 @@ cd /root/Tools/
 
 # Install full Kali toolset Install Atom Install terminator
 echo ""
-echo -e "\e[1;33m Installing Terminator... \ep[0m"
-echo -e "\e[1;33m Installing Atom code editor...  \e[0m"
-echo -e "\e[1;32m Installing full Kali toolset... \e[0m"
+echo -e "\e[1;33m Installing Terminator... \ep[0mBold"
+echo -e "\e[1;33m Installing Atom code editor...  \e[0mBold"
+echo -e "\e[1;32m Installing full Kali toolset... \e[0mBold"
 apt install kali-linux-full atom terminator grc xclip ufw -y
 
 ############## Start static file things #####################
@@ -74,7 +74,7 @@ cp $(locate plink.exe) .
 ############## Start Git things ##########################
 # Clone some Repos
 echo ""
-echo -e "\e[1;32m Cloning Repos...\e[0m"
+echo -e "\e[1;32m Cloning Repos...\e[0mBold"
 
 # Get Linpeas suite
 echo ""
@@ -121,19 +121,19 @@ git clone https://github.com/rasta-mouse/Watson
 ################ Misc things ############################
 # Install zsh
 echo ""
-echo -e "\e[1;33m Last step, installing zsh... \e[0m"
+echo -e "\e[1;33m Last step, installing zsh... \e[0mBold"
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Install ZSH Syntax Highlighting
 echo ""
-echo -e "\e[1;33m Installing Zsh Plugins... \e[0m"
+echo -e "\e[1;31m Installing Zsh Plugins... \e[0mBold"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 echo -e "source \${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
 sed -i 's/plugins=(git.*/plugins=(git encode64)/' "~/.zshrc"
 
 # Add aliases
 echo ""
-echo -e "\e[1;33m Adding Aliases...\e[0m"
+echo -e "\e[1;31m Adding Aliases...\e[0mBold"
 echo "alias ghidra=\"~/Tools/ghidra_9.1.1_PUBLIC/ghidraRun\"" >> ~/.zshrc
 echo "alias simple=\"python -m SimpleHTTPServer 80\"" >> ~/.bashrc
 echo "alias simple=\"python -m SimpleHTTPServer 80\"" >> ~/.zshrc
