@@ -36,7 +36,7 @@ It will create a 'Tools' directory on /root/ and install all the tools.
 - Type `nmap` to lauch a colored nmap scan.
 - Type `tools` to go to the Tools directory.
 
-## Zsh Plugins enabled
+## Zsh Plugins enabled:
 
 - encode64
 Example:
