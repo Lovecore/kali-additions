@@ -129,7 +129,7 @@ echo ""
 echo -e "\e[1;33m Installing Zsh Plugins... \e[0m"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 echo -e "source \${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
-sed -i 's/plugins=(git.*/plugins=(git encode64)/' ~/.zshrc
+sed -i 's/plugins=(git.*/plugins=(git encode64)/' "~/.zshrc"
 
 # Add aliases
 echo ""

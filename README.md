@@ -39,6 +39,7 @@ It will create a 'Tools' directory on /root/ and install all the tools.
 ## Zsh Plugins enabled:
 
 - encode64
+
 Example:
 ```
 encode64 some_string
