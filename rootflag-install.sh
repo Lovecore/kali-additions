@@ -35,21 +35,14 @@ echo ""
 echo -e "\e[1;33m Installing Terminator... \ep[0m"
 echo -e "\e[1;33m Installing Atom code editor...  \e[0m"
 echo -e "\e[1;32m Installing full Kali toolset... \e[0m"
-apt install kali-linux-full atom terminator -y
+apt install kali-linux-full atom terminator grc -y
 
-# Clone some Repos
+############## Start static file things #####################
+# Get nc static binaries
 echo ""
-echo -e "\e[1;32m Cloning Repos...\e[0m"
-
-# Get Linpeas suite
-echo ""
-echo -e "\e[1;33m Getting LinPeas...\e[0m"
-git clone https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite
-
-# Get LinEnum
-echo ""
-echo -e "\e[1;33m Getting LinEnum...\e[0m"
-wget https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh
+echo -e "\e[1;33m Getting Netcat static binaries \e[0m"
+wget https://eternallybored.org/misc/netcat/netcat-win32-1.12.zip
+unzip -j -o netcat-win32-1.12.zip "nc64.exe" "nc.exe" -d . && rm -rf netcat-win32-1.12.zip
 
 # Get Pspy
 echo ""
@@ -63,6 +56,35 @@ echo -e "\e[1;33m Getting Sysinternals... \e[0m"
 wget https://download.sysinternals.com/files/SysinternalsSuite.zip
 mkdir Sysinternals
 unzip -o SysinternalsSuite.zip -d /root/Tools/Sysinternals && rm -rf SysinternalsSuite.zip
+
+# Get Ghidra
+echo ""
+echo -e "\e[1;33m Getting Ghidra v9.1.1... \e[0m"
+wget https://ghidra-sre.org/ghidra_9.1.1_PUBLIC_20191218.zip
+unzip -o ghidra_9.1.1_PUBLIC_20191218.zip && rm -rf ghidra_9.1.1_PUBLIC_20191218.zip
+echo "alias ghidra=\"~/Tools/ghidra_9.1.1_PUBLIC/ghidraRun\"" >> ~/.bashrc
+
+# Copy over plink.exe
+echo ""
+echo -e "\e[1;33m Getting Plink.exe... \e[0m"
+cp $(locate plink.exe) .
+
+############## End static file things ####################
+
+############## Start Git things ##########################
+# Clone some Repos
+echo ""
+echo -e "\e[1;32m Cloning Repos...\e[0m"
+
+# Get Linpeas suite
+echo ""
+echo -e "\e[1;33m Getting LinPeas...\e[0m"
+git clone https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite
+
+# Get LinEnum
+echo ""
+echo -e "\e[1;33m Getting LinEnum...\e[0m"
+wget https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh
 
 # John tools (ssh2john)
 echo ""
@@ -94,19 +116,9 @@ echo ""
 echo -e "\e[1;33m Getting Watson... \e[0m"
 git clone https://github.com/rasta-mouse/Watson
 
-# Get nc static binaries
-echo ""
-echo -e "\e[1;33m Getting Netcat static binaries \e[0m"
-wget https://eternallybored.org/misc/netcat/netcat-win32-1.12.zip
-unzip -j -o netcat-win32-1.12.zip "nc64.exe" "nc.exe" -d . && rm -rf netcat-win32-1.12.zip
+################ End Git things #########################
 
-# Get Ghidra
-echo ""
-echo -e "\e[1;33m Getting Ghidra v9.1.1... \e[0m"
-wget https://ghidra-sre.org/ghidra_9.1.1_PUBLIC_20191218.zip
-unzip -o ghidra_9.1.1_PUBLIC_20191218.zip && rm -rf ghidra_9.1.1_PUBLIC_20191218.zip
-echo "alias ghidra=\"~/Tools/ghidra_9.1.1_PUBLIC/ghidraRun\"" >> ~/.bashrc
-
+################ Misc things ############################
 # Install zsh
 echo ""
 echo -e "\e[1;33m Last step, installing zsh... \e[0m"
@@ -117,7 +129,14 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 echo ""
 echo -e "\e[1;33m Adding Aliases...\e[0m"
 echo "alias ghidra=\"~/Tools/ghidra_9.1.1_PUBLIC/ghidraRun\"" >> ~/.zshrc
+echo "alias simple=\"python -m SimpleHTTPServer 80\"" >> ~/.bashrc
+echo "alias simple=\"python -m SimpleHTTPServer 80\"" >> ~/.zshrc
+echo "alias tools=\"cd ~/Tools\"" >> ~/.zshrc
+echo "alias tools=\"cd ~/Tools\"" >> ~/.bashrc
+echo "alias nmap=\"grc nmap\"" >> ~/.bashrc
+echo "alias nmap=\"grc nmap\"" >> ~/.zshrc
 
+# Building alias
 source ~/.zshrc
 source ~/.bashrc
 cd ~
