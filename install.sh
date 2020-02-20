@@ -116,6 +116,11 @@ echo ""
 echo -e "\e[1;33m Getting Watson... \e[0m"
 git clone https://github.com/rasta-mouse/Watson
 
+# Get Nullinux.py
+echo ""
+echo -e "\e[1;33m Getting Nullinux.py... \e[0m"
+git clone https://github.com/m8r0wn/nullinux
+
 ################ End Git things #########################
 
 ################ Misc things ############################
